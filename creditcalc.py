@@ -87,6 +87,7 @@ args = parser.parse_args()
 # Error catcher:
 if args.type not in ['annuity', 'diff']:
     print("Incorrect parameters!")
+    exit(0)
 elif args.payment is not None and args.payment < 0 and args.principal is not None and args.principal < 0 and args.periods\
         is not None and args.periods < 0 and args.interest is not None and args.interest < 0:
     print("Incorrect parameters!")
@@ -106,4 +107,4 @@ elif args.type == "diff" and args.payment is None and args.principal is not None
         args.interest is not None:
     calculate_differentiated(args.principal, args.periods, args.interest)
 else:
-    print("Incorrect parameters!")
+    print("Incorrect parameters! Use --type=annuity or type=diff for type you need to check")
